@@ -5,6 +5,7 @@ import LandingPage from '../views/general/LandingPage.vue';
 import RegisterModal from '../views/modals/RegisterModal.vue';
 import NewsFeed from '../views/user/NewsFeed.vue';
 import EditProfile from '../views/user/EditProfile.vue';
+import MovieList from '../views/user/MovieList.vue';
 import RegisterEmailSent from '../views/modals/RegisterEmailSent.vue';
 import RegisterSuccess from '../views/modals/RegisterSuccess.vue';
 import LoginModal from '../views/modals/LoginModal.vue';
@@ -39,6 +40,7 @@ const router = createRouter({
     },
     { path: '/news-feed', component: NewsFeed, beforeEnter: isAuthenticated },
     { path: '/profile', component: EditProfile, beforeEnter: isAuthenticated },
+    { path: '/movies', component: MovieList, beforeEnter: isAuthenticated },
     { path: '/403-forbidden', component: ForbiddenPage },
     { path: '/:notFound(.*)', component: NotFound },
   ],

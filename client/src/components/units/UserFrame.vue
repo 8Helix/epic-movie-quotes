@@ -3,6 +3,9 @@
     <the-header></the-header>
     <the-layout class="h-screen pt-8 text-white">
       <side-menu></side-menu>
+      <!-- <div class="col-start-4 col-end-13">
+        <slot></slot>
+      </div> -->
       <slot></slot>
     </the-layout>
   </div>

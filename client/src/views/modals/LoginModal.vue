@@ -78,7 +78,8 @@ const onSubmit = async (values) => {
     const response = await axiosInstance.post(`/login`, values);
     axiosInstance.defaults.withCredentials = true;
     authStore.authenticated = true;
-    router.push('/news-feed');
+    console.log('yo');
+    router.push('/feed');
   } catch (err) {
     console.log(err);
   }

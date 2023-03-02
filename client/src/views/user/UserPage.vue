@@ -3,7 +3,7 @@
     <the-header></the-header>
     <the-layout class="h-screen pt-8 text-white">
       <side-menu></side-menu>
-      <p>{{ store.auth }}</p>
+      <p>{{ store.auth }}???????????????????????????</p>
       <router-view></router-view>
     </the-layout>
   </div>

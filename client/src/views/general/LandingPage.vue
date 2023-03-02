@@ -1,9 +1,9 @@
 <template>
   <div class="relative" :class="{ 'h-screen overflow-hidden': overflow }">
     <div
-      class="absolute top-0 right-0 z-10 h-screen w-screen bg-primary-dark"></div>
+      class="absolute top-0 right-0 z-0 h-screen w-screen bg-primary-dark"></div>
     <div class="bg-primary">
-      <div class="relative z-20">
+      <div class="relative z-10">
         <header
           class="flex h-[7.93vh] items-center justify-between px-[3.64vw]">
           <span class="text-sm uppercase text-cream md:text-base">
@@ -36,17 +36,39 @@
         </div>
       </div>
     </div>
-    <div class="relative">
-      <div class="-z-10 flex">
-        <img src="src/assets/images/image4.png" class="h-full w-full" />
-      </div>
+
+    <div style="z-index: -1" class="section">
       <div class="flex">
-        <img src="src/assets/images/image2.png" class="h-full w-full" />
-      </div>
-      <div class="flex">
-        <img src="src/assets/images/image3.png" class="h-full w-full" />
+        <img src="@/assets/images/image1.png" class="w-full" />
       </div>
     </div>
+    <div class="" style="z-index: 200">
+      <p class="text-5xl font-bold text-white">
+        “You have to leave somethig behind to go forward”
+      </p>
+    </div>
+
+    <!-- <div class="absolute top-0 ml-[170px]" style="z-index: 200">
+      <div class="h-screen"></div>
+
+      <p class="mt-96 text-5xl font-bold text-white" style="z-index: 12">
+        “You have to leave somethig behind to go forward”
+      </p>
+    </div> -->
+
+    <div class="section flex">
+      <img src="@/assets/images/image2.png" class="w-full" />
+    </div>
+    <div class="" style="z-index: 205">
+      <p class="text-5xl font-bold text-white">
+        “You have to leave somethig behind to go forward”
+      </p>
+    </div>
+
+    <div class="section flex">
+      <img src="@/assets/images/image3.png" class="w-full" />
+    </div>
+
     <teleport to="body ">
       <router-view></router-view>
     </teleport>
@@ -66,6 +88,27 @@ onMounted(() => {
   if (route.path !== '/') {
     overflow.value = true;
   }
+
+  const sections = document.querySelectorAll('.section');
+  const paragraph = document.querySelector('.paragraph');
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+
+      if (currentScroll > sectionTop && currentScroll < sectionBottom) {
+        section.classList.add('sticky');
+        const z = i === 0 ? -1 : i;
+        section.style.zIndex = `${z}`;
+        // paragraph.style.zIndex = `${z}`;
+        // paragraph.style.position = 'relative';
+      }
+    }
+  });
 });
 
 watch(
@@ -86,3 +129,15 @@ function openLogin() {
   overflow.value = true;
 }
 </script>
+
+<style>
+.section {
+  position: relative;
+  z-index: 50;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+</style>

@@ -38,7 +38,7 @@ const router = createRouter({
         { path: '/email/changed', component: EmailSuccess },
       ],
     },
-    { path: '/news-feed', component: NewsFeed, beforeEnter: isAuthenticated },
+    { path: '/feed', component: NewsFeed, beforeEnter: isAuthenticated },
     { path: '/profile', component: EditProfile, beforeEnter: isAuthenticated },
     { path: '/movies', component: MovieList, beforeEnter: isAuthenticated },
     { path: '/403-forbidden', component: ForbiddenPage },

@@ -15,7 +15,7 @@
     </div>
     <div class="mt-10 flex gap-[50px]">
       <the-house class="ml-[10px]" :color="selectedRoute.newsFeed"></the-house>
-      <router-link to="/news-feed" class="text-2xl">News feed</router-link>
+      <router-link to="/feed" class="text-2xl">News feed</router-link>
     </div>
     <div class="mt-10 flex gap-[50px]">
       <camera-reels
@@ -43,7 +43,7 @@ const selectedRoute = reactive({
 onMounted(() => {
   if (route.path === '/profile') {
     selectedRoute.profile = true;
-  } else if (route.path === '/news-feed') {
+  } else if (route.path === '/feed') {
     selectedRoute.newsFeed = '#E31221';
   } else if (route.path === '/movies') {
     selectedRoute.movies = '#E31221';
